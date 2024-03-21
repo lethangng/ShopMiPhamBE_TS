@@ -1,0 +1,51 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const sequelize_1 = require("sequelize");
+const connectDB_1 = __importDefault(require("../../config/connectDB"));
+class User extends sequelize_1.Model {
+}
+User.init({
+    id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: sequelize_1.DataTypes.BIGINT,
+    },
+    name: {
+        allowNull: true,
+        type: sequelize_1.DataTypes.STRING,
+    },
+    email: {
+        allowNull: true,
+        type: sequelize_1.DataTypes.STRING,
+    },
+    password: {
+        allowNull: true,
+        type: sequelize_1.DataTypes.TEXT,
+    },
+    address: {
+        allowNull: true,
+        type: sequelize_1.DataTypes.TEXT,
+    },
+    phone: {
+        allowNull: true,
+        type: sequelize_1.DataTypes.STRING,
+    },
+    avatar: {
+        allowNull: true,
+        type: sequelize_1.DataTypes.STRING,
+    },
+    roleId: {
+        allowNull: true,
+        type: sequelize_1.DataTypes.BIGINT,
+    },
+}, {
+    timestamps: true,
+    sequelize: connectDB_1.default.sequelize,
+    underscored: false,
+});
+exports.default = User;
+//# sourceMappingURL=User.js.map
